@@ -6,13 +6,9 @@ export default function Hero() {
     <section className="hero-section">
       <div className="profile-image-container">
         <img
-          src="/icon1k.png" // Replace with your actual profile image URL
-          alt="Your Profile"
           className="profile-image"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = "/logo512.png"; // Fallback image if the original fails to load
-          }}
+          src={process.env.PUBLIC_URL + "/icon1k.png"}
+          alt="Description"
         />
         <div className="status-indicator"></div>
       </div>
