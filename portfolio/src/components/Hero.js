@@ -8,7 +8,7 @@ export default function Hero() {
         <img
           className="profile-image"
           src={process.env.PUBLIC_URL + "/icon1k.png"}
-          alt="Description"
+          alt="Ifan Edwards Icon"
         />
         <div className="status-indicator"></div>
       </div>
