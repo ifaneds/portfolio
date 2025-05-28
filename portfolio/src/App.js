@@ -30,7 +30,7 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="portfolio">
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Define your routes here */}
@@ -40,7 +40,7 @@ export default function App() {
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />
           {/* Add a catch-all for 404 if desired */}
-          {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
+          <Route path="*" element={<div>404 Not Found</div>} />
         </Route>
       </Routes>
     </BrowserRouter>
