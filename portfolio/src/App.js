@@ -27,14 +27,10 @@ function Layout() {
     </div>
   );
 }
-console.log("Current NODE_ENV:", process.env.NODE_ENV);
-
-const basename = "/";
-console.log("Basename:", basename); // Log the basename for debugging
 
 export default function App() {
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Define your routes here */}
