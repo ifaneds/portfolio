@@ -1,39 +1,42 @@
 import React from "react";
-import { Linkedin, Github, Twitter } from "lucide-react";
+import { FaArtstation, FaLinkedin, FaGithub } from "react-icons/fa";
+
 // No direct style import needed here, App.js handles global style.css
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-content">
-        <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Ifan Edwards. All rights reserved.
+        </p>
         <div className="footer-social-links">
           <a
-            href="https://linkedin.com/in/yourprofile" // Replace with your LinkedIn profile
+            href="https://linkedin.com/in/ifanedwards"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-social-link"
             aria-label="LinkedIn Profile"
           >
-            <Linkedin className="icon" />
+            <FaLinkedin className="icon" />
           </a>
           <a
-            href="https://github.com/yourusername" // Replace with your GitHub profile
+            href="https://github.com/ifaneds"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-social-link"
             aria-label="GitHub Profile"
           >
-            <Github className="icon" />
+            <FaGithub className="icon" />
           </a>
           <a
-            href="https://twitter.com/yourusername" // Replace with your Twitter profile
+            href="https://www.artstation.com/ifanedwards"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-social-link"
-            aria-label="Twitter Profile"
+            aria-label="ArtStation Profile"
           >
-            <Twitter className="icon" />
+            <FaArtstation className="icon" />{" "}
           </a>
         </div>
       </div>

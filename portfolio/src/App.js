@@ -28,9 +28,11 @@ function Layout() {
   );
 }
 
+const basename = process.env.NODE_ENV === "production" ? "/portfolio" : "/";
+
 export default function App() {
   return (
-    <BrowserRouter basename="portfolio">
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Define your routes here */}

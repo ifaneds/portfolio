@@ -19,7 +19,7 @@ export default function Header() {
       <nav className="navbar">
         {/* Logo/Name - clicking here should go to home */}
         <Link to="/" className="navbar-brand">
-          <span className="navbar-brand-name">John Doe</span>
+          <span className="navbar-brand-name">Ifan Edwards</span>
         </Link>
 
         {/* Desktop Navigation */}

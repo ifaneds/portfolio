@@ -7,22 +7,27 @@ export default function About() {
       <h2 className="section-heading">About Me</h2>
       <div className="about-content">
         <p className="about-paragraph">
-          Hello! I'm John Doe, a dedicated Full-Stack Developer with 5+ years of
-          experience in crafting robust and scalable web solutions. My journey
-          in technology began with a fascination for how things work, leading me
-          to dive deep into programming and web development.
+          Hello! I'm Ifan Edwards, a BSc Games and Multimedia Environments
+          graduate, living in Hove. I am currently enrolled in an Unreal Engine
+          Game Developer Bootcamp with SkillsCity, where I am honing my skills
+          in game development using the Unreal Engine 5 platform. My journey in
+          game development has been fueled by a lifelong passion for technology,
+          creativity and gaming.
         </p>
         <p className="about-paragraph">
-          I specialize in modern JavaScript frameworks like React, alongside
-          backend technologies such as Node.js and Python. I'm passionate about
-          clean code, user-centric design, and continuous learning. I thrive in
-          collaborative environments and enjoy tackling complex problems to
-          deliver high-quality products.
+          I have a strong foundation in programming languages such as C# and
+          Java, and my degree taught me the principles of computer science, game
+          design, and multimedia environments. I am an aspiring Technical
+          Artist, with a keen interest in the intersection of art and technology
+          in game development. I have experience with software such as Blender
+          for 3D modeling and animation and want to combine my technical skills
+          with artistic creativity to create visually stunning and immersive
+          game experiences.
         </p>
         <p className="about-paragraph">
-          Outside of coding, I enjoy hiking, playing guitar, and exploring new
-          technologies. I'm always looking for new challenges and opportunities
-          to grow as a developer and as an individual.
+          Outside of coding and game development, I enjoy swimming, playing
+          games, photography and birding. I'm always looking for new challenges
+          and opportunities to grow in my career and as an individual.
         </p>
       </div>
     </section>

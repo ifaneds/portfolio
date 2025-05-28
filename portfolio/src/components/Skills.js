@@ -1,34 +1,35 @@
 import React from "react";
-// No direct style import needed here, App.js handles global style.css
 
 export default function Skills() {
-  const frontendSkills = [
-    "React",
-    "Next.js",
-    "JavaScript (ES6+)",
-    "TypeScript",
-    "HTML5",
-    "CSS3",
-    "Redux",
-    "Zustand",
-  ];
-  const backendSkills = [
-    "Node.js",
-    "Express.js",
-    "Python",
-    "Django",
-    "Flask",
-    "REST APIs",
-    "GraphQL",
-  ];
-  const databaseSkills = [
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "Firebase",
-    "Firestore",
-  ];
-  const devopsTools = ["Git", "Docker", "AWS", "Netlify", "Vercel"];
+  // Define skills for each new category
+  const gameDevSkills = [
+    "Unity",
+    "Unreal Engine",
+    "Gameplay Systems",
+    "Scripting",
+    "UI",
+  ]; // Adjust based on your actual engine experience and learning
+  const programmingSkills = [
+    "Java",
+    "C#",
+    "JavaScript",
+    "Object-Oriented Programming (OOP)",
+    "Data Structures & Algorithms",
+  ]; // Add C#/C++ if applicable
+  const artAndAnimationSkills = [
+    "3D Modeling (Blender, Cinema 4D)",
+    "Texturing & UV Mapping",
+    "Character Animation",
+    "Prop Animation",
+  ]; // Specify software you use
+  const vfxSkills = [
+    "Adobe After Effects",
+    "Blender (Simulations & Pre-rendered VFX)",
+    "Video Compositing",
+    "Video Editing",
+  ]; // Specific to your clarification
+
+  const webDevSkills = ["React", "PostgreSQL", "Spring Boot"]; // Keep your strong web skills
 
   const SkillCategory = ({ title, skills }) => (
     <div className="skill-category-card">
@@ -47,10 +48,23 @@ export default function Skills() {
     <section id="skills" className="skills-section">
       <h2 className="section-heading">My Skills</h2>
       <div className="skills-grid">
-        <SkillCategory title="Frontend Development" skills={frontendSkills} />
-        <SkillCategory title="Backend Development" skills={backendSkills} />
-        <SkillCategory title="Databases" skills={databaseSkills} />
-        <SkillCategory title="Tools & DevOps" skills={devopsTools} />
+        <SkillCategory
+          title="Game Development & Engines"
+          skills={gameDevSkills}
+        />
+        <SkillCategory
+          title="Programming Languages & Scripting"
+          skills={programmingSkills}
+        />
+        <SkillCategory title="Web Development" skills={webDevSkills} />
+        <SkillCategory
+          title="3D Art & Animation"
+          skills={artAndAnimationSkills}
+        />
+        <SkillCategory
+          title="Visual Effects & Compositing (Pre-rendered)"
+          skills={vfxSkills}
+        />
       </div>
     </section>
   );
