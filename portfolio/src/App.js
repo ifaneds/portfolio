@@ -29,7 +29,7 @@ function Layout() {
 }
 console.log("Current NODE_ENV:", process.env.NODE_ENV);
 
-const basename = process.env.NODE_ENV === "production" ? "/portfolio" : "/";
+const basename = process.env.PUBLIC_URL || "/";
 console.log("Basename:", basename); // Log the basename for debugging
 
 export default function App() {
