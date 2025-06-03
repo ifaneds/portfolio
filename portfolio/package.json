@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://ifaneds.github.io/portfolio",
   "dependencies": {
+    "@react-three/drei": "^10.1.2",
+    "@react-three/fiber": "^9.1.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -15,6 +17,7 @@
     "react-router-dom": "^7.6.1",
     "react-scripts": "^5.0.1",
     "tailwind": "^2.3.1",
+    "three": "^0.177.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

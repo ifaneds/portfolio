@@ -33,7 +33,7 @@ export default function Hero() {
           Get in Touch
         </a>
         <a
-          href="/cv_ifan_edwards.pdf" // download link for my CV
+          href={process.env.PUBLIC_URL + "/cv_ifan_edwards.pdf"} // download link for my CV
           download
           className="hero-button hero-button-secondary"
         >

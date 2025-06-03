@@ -11,6 +11,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Three from "./components/three";
 
 // Import your global CSS file
 import "./style.css";
@@ -40,6 +41,8 @@ export default function App() {
           {/* Define your routes here */}
           <Route index element={<Hero />} /> {/* Default route for "/" */}
           <Route path="about" element={<About />} />
+          <Route path="three" element={<Three />} />
+          {/* Add your new pages */}
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />

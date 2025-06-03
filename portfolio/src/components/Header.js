@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import useNavigate
-import { Home, User, Code, Briefcase, Mail } from "lucide-react";
+import { Home, User, Code, Briefcase, Mail, Cuboid } from "lucide-react";
 
 export default function Header() {
   const location = useLocation(); // Hook to get current URL location
@@ -9,20 +9,11 @@ export default function Header() {
   const navItems = [
     { name: "Home", icon: Home, path: "/" },
     { name: "About", icon: User, path: "/about" },
+    { name: "Three.js", icon: Cuboid, path: "/three" }, // Assuming you have a Three.js page
     { name: "Skills", icon: Code, path: "/skills" },
     { name: "Projects", icon: Briefcase, path: "/projects" },
     { name: "Contact", icon: Mail, path: "/contact" },
   ];
-
-  // For correctly determining the active state in mobile menu.
-  // In development (localhost), PUBLIC_URL is often empty or '/'.
-  // On GitHub Pages, it's '/portfolio'.
-  // location.pathname from React Router will internally strip the basename.
-  // So, if your app is at http://localhost:3000/ and PUBLIC_URL is '', location.pathname for home is '/'.
-  // If your app is at http://localhost:3000/portfolio and PUBLIC_URL is '/portfolio', location.pathname for home is still '/'.
-  // The 'publicUrl' variable itself is only needed for the BrowserRouter basename property, not for individual Link/navigate calls.
-  // However, we can use it to help with the active state check for the root path.
-  const publicUrl = process.env.PUBLIC_URL || "/"; // Get the basename from environment, default to '/'
 
   const handleMobileNavChange = (e) => {
     const selectedPath = e.target.value;
