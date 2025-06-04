@@ -69,7 +69,7 @@ export default function ThreeDScene() {
       <OrbitControls />
       {/* Your 3D Building Model */}
       <Apartment
-        url="/models/your_building_model.glb" // <<< CHANGE THIS to your building's path
+        url="/3d/Apartment.glb" // <<< CHANGE THIS to your building's path
         position={[0, 0, 0]} // Adjust position as needed
         scale={[1, 1, 1]} // Adjust scale as needed
         rotation={[0, 0, 0]} // Adjust rotation as needed
