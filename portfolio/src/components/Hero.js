@@ -1,5 +1,6 @@
 import React from "react";
-import { Mail } from "lucide-react";
+import { IoMdDownload, IoMdMail } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -21,22 +22,31 @@ export default function Hero() {
         knack for creating immersive experiences.
       </p>
       <div className="hero-buttons">
-        <a href="/contact" className="hero-button hero-button-primary">
-          <Mail
+        <Link to="/contact" className="hero-button hero-button-primary">
+          <IoMdMail
             className="icon"
             style={{
               display: "inline-block",
               verticalAlign: "middle",
               marginRight: "0.5rem",
             }}
-          />{" "}
+          />
           Get in Touch
-        </a>
+        </Link>
+
         <a
           href={process.env.PUBLIC_URL + "/cv_ifan_edwards.pdf"} // download link for my CV
           download
-          className="hero-button hero-button-secondary"
+          className="hero-button hero-button-primary"
         >
+          <IoMdDownload
+            className="icon"
+            style={{
+              display: "inline-block",
+              verticalAlign: "middle",
+              marginRight: "0.5rem",
+            }}
+          />
           Download CV
         </a>
       </div>

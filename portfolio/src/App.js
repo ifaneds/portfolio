@@ -42,7 +42,6 @@ export default function App() {
           <Route index element={<Hero />} /> {/* Default route for "/" */}
           <Route path="about" element={<About />} />
           <Route path="three" element={<Three />} />
-          {/* Add your new pages */}
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />

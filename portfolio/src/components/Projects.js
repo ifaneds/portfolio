@@ -1,35 +1,23 @@
 import React from "react";
-import { Github, ExternalLink } from "lucide-react";
-// No direct style import needed here, App.js handles global style.css
+import { LuGithub, LuExternalLink } from "react-icons/lu";
 
 export default function Projects() {
   const projects = [
     {
-      title: "E-commerce Platform",
+      title: "Job Search Platform",
       description:
-        "A full-stack e-commerce application with user authentication, product listings, shopping cart, and payment integration.",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-      githubLink: "https://github.com/yourusername/ecommerce-platform", // Replace with your GitHub link
-      liveLink: "https://ecommerce-demo.com", // Replace with your live demo link
-      imageUrl: "https://placehold.co/400x250/374151/D1D5DB?text=Project+1", // Placeholder image
-    },
-    {
-      title: "Task Management App",
-      description:
-        "A responsive task management application with drag-and-drop functionality, real-time updates, and user collaboration.",
-      technologies: ["React", "Firebase", "Redux"],
-      githubLink: "https://github.com/yourusername/task-app",
-      liveLink: "https://task-app-demo.com",
-      imageUrl: "https://placehold.co/400x250/374151/D1D5DB?text=Project+2",
-    },
-    {
-      title: "Personal Blog",
-      description:
-        "A minimalist blog platform built with a modern static site generator, featuring markdown support and SEO optimization.",
-      technologies: ["Next.js", "Markdown", "GraphQL", "Vercel"],
-      githubLink: "https://github.com/yourusername/personal-blog",
-      liveLink: "https://your-blog-demo.com",
-      imageUrl: "https://placehold.co/400x250/374151/D1D5DB?text=Project+3",
+        "A full-stack job search application with user authentication, job listings, and calendar management. Hosted on Render. Please be patient as any calls to the backend may take a few seconds.",
+      technologies: [
+        "React",
+        "Docker",
+        "Java",
+        "SpringBoot",
+        "PostgreSQL",
+        "Render",
+      ],
+      githubLink: "https://github.com/ifaneds/side-hustle", // Replace with your GitHub link
+      liveLink: "https://ifaneds.github.io/side-hustle/", // Replace with your live demo link
+      imageUrl: process.env.PUBLIC_URL + "/side_hustle_project_image.png", // Placeholder image
     },
   ];
 
@@ -63,7 +51,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="project-link"
             >
-              <Github className="icon" /> GitHub
+              <LuGithub className="icon" /> GitHub
             </a>
           )}
           {project.liveLink && (
@@ -73,7 +61,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="project-link live"
             >
-              <ExternalLink className="icon" /> Live Demo
+              <LuExternalLink className="icon" /> Live Demo
             </a>
           )}
         </div>
@@ -84,10 +72,17 @@ export default function Projects() {
   return (
     <section id="projects" className="projects-section">
       <h2 className="section-heading">My Projects</h2>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+      <div className="projects-content">
+        <p className="projects-introduction">
+          Here are some of the projects I've worked on. Click on the links to
+          view the code or see a live demo.
+        </p>
+
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,43 +1,80 @@
+// src/components/Skills.js
 import React from "react";
 
+// Import icons from various react-icons libraries
+// You might need to install some of these if you haven't yet (e.g., npm install react-icons)
+import {
+  FaUnity,
+  FaReact,
+  FaDocker,
+  FaJava,
+  FaCogs, // For OOP/Systems
+  FaProjectDiagram, // For Data Structures
+  FaPalette, // For Texturing
+  FaFilm, // For Animation
+} from "react-icons/fa"; // Font Awesome
+import {
+  SiUnrealengine,
+  SiPostgresql,
+  SiSpringboot,
+  SiBlender,
+  SiAdobeaftereffects,
+  SiAdobepremierepro, // For Video Editing
+  SiRender,
+} from "react-icons/si"; // Simple Icons
+import { IoGameControllerOutline } from "react-icons/io5"; // Ionicons
+import { RiCodeBoxLine, RiJavascriptFill } from "react-icons/ri"; // Remix Icon
+import { PiFileCSharp } from "react-icons/pi"; // Phosphor Icons
+import { CiCamera } from "react-icons/ci"; // For Compositing/Camera work
+import { BsFillMenuButtonFill } from "react-icons/bs";
+import { MdAnimation } from "react-icons/md";
+
 export default function Skills() {
-  // Define skills for each new category
+  // Define skills for each new category with an associated icon
   const gameDevSkills = [
-    "Unity",
-    "Unreal Engine",
-    "Gameplay Systems",
-    "Scripting",
-    "UI",
-  ]; // Adjust based on your actual engine experience and learning
+    { name: "Unity", icon: FaUnity },
+    { name: "Unreal Engine", icon: SiUnrealengine },
+    { name: "Gameplay Systems", icon: IoGameControllerOutline }, // Generic game controller
+    { name: "Scripting", icon: RiCodeBoxLine }, // Generic code box
+    { name: "UI", icon: BsFillMenuButtonFill }, // Generic button/menu icon for UI
+  ];
   const programmingSkills = [
-    "Java",
-    "C#",
-    "JavaScript",
-    "Object-Oriented Programming (OOP)",
-    "Data Structures & Algorithms",
-  ]; // Add C#/C++ if applicable
+    { name: "Java", icon: FaJava },
+    { name: "C#", icon: PiFileCSharp }, // Using the PiFileCSharp icon you provided
+    { name: "JavaScript", icon: RiJavascriptFill }, // More specific JS icon
+    { name: "Object-Oriented Programming (OOP)", icon: FaCogs }, // Represents systems/mechanisms
+    { name: "Data Structures & Algorithms", icon: FaProjectDiagram }, // Represents connections/structure
+  ];
+  const webDevSkills = [
+    { name: "React", icon: FaReact },
+    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "Spring Boot", icon: SiSpringboot },
+    { name: "Docker (Basics)", icon: FaDocker },
+    { name: "Render", icon: SiRender },
+  ];
   const artAndAnimationSkills = [
-    "3D Modeling (Blender, Cinema 4D)",
-    "Texturing & UV Mapping",
-    "Character Animation",
-    "Prop Animation",
-  ]; // Specify software you use
+    { name: "3D Modeling (Blender, Cinema 4D)", icon: SiBlender }, // Blender icon, covers general 3D modeling
+    { name: "Texturing & UV Mapping", icon: FaPalette }, // Represents color/texture work
+    { name: "Character Animation", icon: MdAnimation }, // Generic animation icon
+    { name: "Prop Animation", icon: FaFilm }, // Consistent with film/animation icon
+  ];
   const vfxSkills = [
-    "Adobe After Effects",
-    "Blender (Simulations & Pre-rendered VFX)",
-    "Video Compositing",
-    "Video Editing",
-  ]; // Specific to your clarification
+    { name: "Adobe After Effects", icon: SiAdobeaftereffects },
+    { name: "Blender (Simulations & Pre-rendered VFX)", icon: SiBlender }, // Reusing Blender icon as it's the tool
+    { name: "Video Compositing", icon: CiCamera }, // For compositing/camera work
+    { name: "Video Editing", icon: SiAdobepremierepro }, // Specific icon for Premiere Pro
+  ];
 
-  const webDevSkills = ["React", "PostgreSQL", "Spring Boot"]; // Keep your strong web skills
-
+  // Modified SkillCategory to render icon
   const SkillCategory = ({ title, skills }) => (
     <div className="skill-category-card">
       <h3 className="skill-category-title">{title}</h3>
       <div className="skill-tags-container">
         {skills.map((skill, index) => (
           <span key={index} className="skill-tag">
-            {skill}
+            {/* Render icon if it exists */}
+            {skill.icon && <skill.icon className="skill-icon" />}
+            {skill.name}
           </span>
         ))}
       </div>
