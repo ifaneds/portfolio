@@ -31,8 +31,8 @@ export default function Projects() {
               "3D Vector Maths",
           ], 
           githubLink: "https://github.com/ifaneds/unreal-bootcamp/tree/master/Source",
-          livelink: "https://studio.youtube.com/video/eeggjZnDIcE/edit",
-          imageUrl: process.env.PUBLIC_URL + "/rope_project_image.png", 
+          liveLink: "https://youtu.be/eeggjZnDIcE?si=fD-ArX5B8IojRLa7",
+          imageUrl: process.env.PUBLIC_URL + "/rope_project_image.jpg",
       }
   ];
 
