@@ -15,10 +15,25 @@ export default function Projects() {
         "PostgreSQL",
         "Render",
       ],
-      githubLink: "https://github.com/ifaneds/side-hustle", // Replace with your GitHub link
-      liveLink: "https://ifaneds.github.io/side-hustle/", // Replace with your live demo link
-      imageUrl: process.env.PUBLIC_URL + "/side_hustle_project_image.png", // Placeholder image
-    },
+      githubLink: "https://github.com/ifaneds/side-hustle", 
+      liveLink: "https://ifaneds.github.io/side-hustle/", 
+      imageUrl: process.env.PUBLIC_URL + "/side_hustle_project_image.png",
+      },
+      {
+          title: "Procedural Rope Component",
+          description:
+              "A custom c++ scene compoonent made for Unreal Engine. It allows for the creation of procedural ropes with customizable parameters.The component is designed to be efficient and flexible, making it suitable for various game development scenarios.", 
+          technologies: [
+              "C++",
+              "Unreal Engine",
+              "Procedural Generation",
+              "Game Development",
+              "3D Vector Maths",
+          ], 
+          githubLink: "https://github.com/ifaneds/unreal-bootcamp/tree/master/Source",
+          livelink: "https://studio.youtube.com/video/eeggjZnDIcE/edit",
+          imageUrl: process.env.PUBLIC_URL + "/rope_project_image.png", 
+      }
   ];
 
   const ProjectCard = ({ project }) => (
