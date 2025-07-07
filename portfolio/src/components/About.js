@@ -5,7 +5,13 @@ export default function About() {
   return (
     <section id="about" className="about-section">
       <h2 className="section-heading">About Me</h2>
+      
       <div className="about-content">
+        <img
+          src={process.env.PUBLIC_URL + "/portrait.webp"}
+          alt="Ifan Edwards"
+          className="about-image"
+        />
         <p className="about-paragraph">
           Hello! I'm Ifan Edwards, a BSc Games and Multimedia Environments
           graduate, living in Hove. I am currently enrolled in an Unreal Engine

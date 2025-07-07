@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Import the main layout components
 import Header from "./components/Header";
@@ -12,6 +13,8 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Three from "./components/three";
+import Gobsmacked from "./components/Gobsmacked";
+import ProceduralRope from "./components/ProceduralRope";
 
 // Import your global CSS file
 import "./style.css";
@@ -36,6 +39,7 @@ console.log("Basename:", basename); // Log the basename for debugging
 export default function App() {
   return (
     <BrowserRouter basename={basename}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Define your routes here */}
@@ -44,6 +48,8 @@ export default function App() {
           <Route path="three" element={<Three />} />
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
+          <Route path="projects/gobsmacked" element={<Gobsmacked />} />
+          <Route path="projects/procedural-rope" element={<ProceduralRope />} />
           <Route path="contact" element={<Contact />} />
           {/* Add a catch-all for 404 if desired */}
           <Route path="*" element={<div>404 Not Found</div>} />

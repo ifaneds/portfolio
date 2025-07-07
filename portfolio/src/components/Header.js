@@ -9,7 +9,7 @@ export default function Header() {
   const navItems = [
     { name: "Home", icon: Home, path: "/" },
     { name: "About", icon: User, path: "/about" },
-    { name: "Three.js", icon: Cuboid, path: "/three" }, // Assuming you have a Three.js page
+    //{ name: "Three.js", icon: Cuboid, path: "/three" }, // Assuming you have a Three.js page
     { name: "Skills", icon: Code, path: "/skills" },
     { name: "Projects", icon: Briefcase, path: "/projects" },
     { name: "Contact", icon: Mail, path: "/contact" },

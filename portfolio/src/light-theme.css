@@ -1,0 +1,28 @@
+body.light-theme {
+  --dark-background: #fff;         /* Main background for light mode */
+  --light-background: #222;        /* Main text color for light mode */
+  --card-background: #ffffff;      /* Card backgrounds */
+  --primary-teal: #00d9b4; /* Vibrant green/teal from the cubes */
+  --secondary-blue: #00b4d9; /* Light blue from the cubes */
+  --shadow-dark: rgba(182, 182, 182, 0.308); /* Softer shadow for light mode */
+  --accent-purple: #6c63ff;        /* Accent for light mode */
+  
+  --gray-100: #212529;
+  --gray-200: #343a40;
+  --gray-300: #808080;
+  --gray-400: #bdbdbd;
+  --gray-600: #ffffff;
+  --gray-700: #ececec;
+  --gray-800: #ffffff;
+  --gray-900: #ffffff;
+  --error-red: #e57373;
+  --white: #fff;
+  --indicator-bg: rgba(0,0,0,0.15);
+  --modal-overlay: rgba(255,255,255,0.95);
+  --modal-nav-bg: rgba(0,0,0,0.08);
+  --modal-nav-hover-bg: rgba(0,0,0,0.18);
+  --modal-icon: #222;
+  --button-text: #222;
+  background: var(--dark-background);
+  color: var(--light-background);
+} 
