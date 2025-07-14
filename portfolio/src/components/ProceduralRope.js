@@ -21,7 +21,9 @@ export default function ProceduralRope() {
           <h1 className="project-title">Procedural Rope Component</h1>
           <p className="project-subtitle">Unreal Engine Plugin for Dynamic Rope Generation</p>
         </div>
-
+        <div className="project-video-container" style={{ textAlign: "center", margin: "2rem 0" }}>
+  
+</div>
         <div className="project-content-centered">
           <div className="project-details">
             <div className="project-section">
@@ -38,7 +40,16 @@ export default function ProceduralRope() {
                 including climbing mechanics, grappling hooks, suspension systems, and more.
               </p>
             </div>
-
+            <iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/eeggjZnDIcE"
+    title="Procedural Rope Demo"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
+  />
             <div className="project-section">
               <h2 className="section-title">Key Features</h2>
               <div className="features-grid">

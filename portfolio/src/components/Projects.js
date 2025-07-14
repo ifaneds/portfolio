@@ -47,7 +47,7 @@ export default function Projects() {
     {
       title: "WIP Fighting game",
       description:
-        "New project for a fighting game in UE5. Very early stages.",
+        "New project for a fighting game in UE5. Very early stages. Aiming for reactive combat that feels good to use. Learning a lot during the process.",
       technologies: [
         "C++",
         "Unreal Engine",
@@ -58,8 +58,8 @@ export default function Projects() {
       links: {
         github: "https://github.com/ifaneds/martial-arts-game",
         live: null,
-        video: "https://www.youtube.com/watch?v=JelK4N2fZos", // No additional page for this project
-        internal: null // No internal page for this project
+        video: "https://www.youtube.com/watch?v=5g2FevneFnE", // No additional page for this project
+        internal: "fighting-game" // Now links to the internal page
       },
       imageUrl: process.env.PUBLIC_URL + "/fighting_game_project_image.png",
     },
@@ -82,6 +82,24 @@ export default function Projects() {
         internal: null // No internal page for this project
       },
       imageUrl: process.env.PUBLIC_URL + "/side_hustle_project_image.png",
+    },
+    {
+      title: "Game Jam - It's not what it seems",
+      description:
+        "A game developed for a game jam as part of the Unreal Engine - Games Developer Bootcamp. Click the video link to see a short demo",
+      technologies: [
+        "Unity",
+        "C#",
+        "Game Jam",
+        "Game Design"
+      ],
+      links: {
+        github: null,
+        live: null,
+        video: "https://www.youtube.com/watch?v=WM_G8nnBiLw",
+        internal: null
+      },
+      imageUrl: process.env.PUBLIC_URL + "/game_jam_project_image.png"
     },
   ];
 
