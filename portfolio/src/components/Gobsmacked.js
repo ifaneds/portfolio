@@ -39,6 +39,69 @@ export default function Gobsmacked() {
               </p>
             </div>
 
+        
+  
+            <div className="project-section">
+              <h2 className="section-title">My Role</h2>
+              <p className="project-description">
+                In this project, I have been working on the functionality of two mini games; bomb tag and roped together. 
+                For bomb tag, I designed the visual effects and implemented the bomb fuse and explosion Niagara systems. 
+                For roped together, I designed the rope mechanics similar methods to the procedural rope component 
+                I made for my other project. I have designed two levels which contain mostly 
+              </p>
+    
+
+            <iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/U11Xwk3YYcU"
+    title="Procedural Rope Demo"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
+  />
+  <p className="project-description">
+
+  </p>
+
+
+    <iframe
+width="800"
+height="450"
+src="https://www.youtube.com/embed/LaTXemeou7Q"
+title="Procedural Rope Demo"
+frameBorder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowFullScreen
+style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
+/>
+<p className="project-description">
+    I created the wooden platforms in this level by using blueprints to add instances to an Instanced Static Mesh.
+    The actor uses spline points to decide where the platforms should be, and creates a bridge between the points using 
+    my procedural rope component with a wooden plank mesh and negative offset so that there are gaps between the planks. 
+    I used an Editor Utility Widget to perform a line trace from the spline points to determine the distance to the ground 
+    so that the right amount of instances are created with the correct offset. I modelled a 1x1x1m support beam to be iterated and a platform 
+    for the top which are instanced to create the structure. The scale of the spline points dictates the scale of the platforms
+    and a bool decides whether bridges should be created. 
+  </p>
+  <p className="project-description">
+  The video below shows the creation of walkways:
+  </p>
+  <iframe
+width="800"
+height="450"
+src="https://www.youtube.com/embed/jgY6F3eTddE"
+title="Procedural Rope Demo"
+frameBorder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowFullScreen
+style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
+/>
+  </div>
+
+ 
+
             <div className="project-section">
               <h2 className="section-title">Key Features</h2>
               <div className="features-grid">
@@ -100,17 +163,7 @@ export default function Gobsmacked() {
               </p>
             </div>
 
-            <div className="project-section">
-              <h2 className="section-title">My Role</h2>
-              <p className="project-description">
-                In this project, I have been working on the functionality of two mini games; bomb tag and roped together. 
-                For bomb tag, I designed the visual effects and implemented the bomb fuse and explosion Niagara systems. 
-                For roped together, I designed the rope physics using similar methods to the procedural rope component 
-                I made for my other project. I am designing the level for roped together which will be a cooperative parkour 
-                experience where the players are tethered together. I have also been working on the custom assets for the game, 
-                modeling and texturing them in Blender.
-              </p>
-            </div>
+            
 
             <div className="project-section">
               <h2 className="section-title">Project Gallery</h2>
