@@ -842,12 +842,22 @@ body {
   appearance: none;
   border: 1px solid var(--gray-600); /* border border-gray-600 */
   border-radius: 0.5rem; /* rounded-lg */
-  width: 95%;
-  padding: 0.75rem 1rem; /* py-3 px-4 */
+  width: 100%;
   background-color: var(--gray-700); /* bg-gray-700 */
   color: var(--gray-200); /* text-gray-200 */
-  line-height: 1.5; /* leading-tight */
   outline: none; /* focus:outline-none */
+}
+
+.form-input {
+  padding: 0.5rem 1rem; /* Reduced padding for single line */
+  line-height: 1.2; /* Tighter line height for single line */
+}
+
+.form-textarea {
+  padding: 0.75rem 1rem; /* Keep original padding for textarea */
+  line-height: 1.5; /* Keep original line height for textarea */
+  min-height: 8rem; /* rows-6 equivalent if you want minimum height */
+  resize: vertical; /* resize-y */
 }
 
 .form-input:focus,
@@ -858,6 +868,14 @@ body {
 .form-textarea {
   min-height: 8rem; /* rows-6 equivalent if you want minimum height */
   resize: vertical; /* resize-y */
+}
+
+/* Consistent placeholder styling for all form inputs */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--gray-400);
+  opacity: 1; /* Ensure consistent opacity across browsers */
 }
 
 .submit-button,

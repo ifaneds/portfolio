@@ -1,6 +1,6 @@
 // src/components/ThreeDScene.js (or whatever you named it)
-import React, { useRef, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useRef, useCallback } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei"; // Add OrbitControls for easy camera movement
 import { Apartment } from "./Apartment"; // Import your new GLTF model component
 
@@ -9,39 +9,11 @@ export default function ThreeDScene() {
   const creatureRef = useRef();
   const actionsRef = useRef({}); // To store animation actions from the creature
 
-  // Example: How to control creature based on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Map scrollY to animation time or creature position
-      // This is highly conceptual and needs fine-tuning for your specific animation/scene
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollProgress = scrollY / maxScroll; // 0 to 1
-
-      if (creatureRef.current && actionsRef.current.Crawl) {
-        // Adjust creature position based on scroll (example)
-        // creatureRef.current.position.y = 5 - (scrollProgress * 10); // Adjust Y position
-
-        // Adjust animation time based on scroll
-        // Assuming 'Crawl' is the name of your creature's crawling animation
-        if (actionsRef.current.Crawl.getClip()) {
-          const clipDuration = actionsRef.current.Crawl.getClip().duration;
-          actionsRef.current.Crawl.time = scrollProgress * clipDuration;
-          actionsRef.current.Crawl.play(); // Ensure it's playing
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Empty dependency array means this effect runs once on mount
-
   // Callback when creature model is loaded
-  const handleCreatureLoaded = (scene, animations, actions) => {
+  const handleCreatureLoaded = useCallback((scene, animations, actions) => {
     actionsRef.current = actions; // Store the actions for later use
     console.log("Creature loaded! Available animations:", Object.keys(actions));
-  };
+  }, []);
 
   return (
     <Canvas

@@ -38,9 +38,10 @@ export default function ProceduralRope() {
                 including climbing mechanics, grappling hooks, suspension systems, and more.
               </p>
             </div>
-            <div className="project-video-container" style={{ textAlign: "center", margin: "2rem 0" }}>
-  
-
+            <div className="project-section">
+            <p className="project-description">
+               This video demonstrates the functionality of the procedural rope component.
+              </p>
             <iframe
     width="800"
     height="450"
@@ -127,7 +128,7 @@ export default function ProceduralRope() {
               <p className="project-description">
                 This component was developed through extensive research into rope physics and 
                 3D mathematics. I was inspired by the short section of <a href="https://www.youtube.com/watch?v=y9BOz2dFZzs&t=1997s" className="inline-link">this video</a>{" "}  
-                 from the creators of sea of thieves where they explain how the ropes in their game work.
+                 from the creators of Sea of Thieves where they explain how the ropes in their game work.
                 I enjoyed the challenge of trying learn from their implementation while making adaptations for what I wanted to have the component do.
               </p>
               <p className="project-description">

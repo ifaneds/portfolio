@@ -1,5 +1,5 @@
 import React from "react";
-import { LuGithub, LuExternalLink, LuFileText, LuArrowRight, LuVideo } from "react-icons/lu";
+import { LuGithub, LuExternalLink, LuArrowRight, LuVideo } from "react-icons/lu";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Projects() {

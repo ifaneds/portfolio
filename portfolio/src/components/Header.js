@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import useNavigate
-import { Home, User, Code, Briefcase, Mail, Cuboid } from "lucide-react";
+import { Home, User, Code, Briefcase, Mail } from "lucide-react";
 
 export default function Header() {
   const location = useLocation(); // Hook to get current URL location

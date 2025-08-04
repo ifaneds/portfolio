@@ -1,25 +1,23 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const formRef = useRef({
     name: "",
     email: "",
     message: "",
   });
   const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    formRef.current[e.target.id] = e.target.value;
+  }, []);
 
-  const handleOpenEmailApp = (e) => {
-    e.preventDefault(); // Prevent default form submission to the server
+  const handleOpenEmailApp = useCallback((e) => {
+    e.preventDefault();
 
-    // 1. IMPORTANT: Replace 'your.email@example.com' with YOUR ACTUAL EMAIL ADDRESS
     const recipientEmail = "ifaneds1@gmail.com";
+    const formData = formRef.current;
 
-    // 2. Encode subject and body to handle special characters and line breaks
-    // %0D%0A represents a new line in URL encoding
     const subject = encodeURIComponent(
       `Portfolio Contact: Message from ${formData.name}`
     );
@@ -29,19 +27,21 @@ export default function Contact() {
         `Message:\n${formData.message}`
     );
 
-    // Construct the mailto link
     const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-
-    // Attempt to open the user's default email client
     window.location.href = mailtoLink;
 
     setStatus("Your email app is opening...");
 
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
+    // Clear form data immediately without setTimeout
+    formRef.current = { name: "", email: "", message: "" };
+    
+    // Use a single timeout to update status
+    const timeoutId = setTimeout(() => {
       setStatus("Please send the message from your email application.");
     }, 1500);
-  };
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <section id="contact" className="contact-section">
@@ -60,8 +60,8 @@ export default function Contact() {
               type="text"
               id="name"
               className="form-input"
-              placeholder="Your Name"
-              value={formData.name}
+              placeholder="Your name"
+              defaultValue=""
               onChange={handleChange}
               required
             />
@@ -75,7 +75,7 @@ export default function Contact() {
               id="email"
               className="form-input"
               placeholder="your.email@example.com"
-              value={formData.email}
+              defaultValue=""
               onChange={handleChange}
               required
             />
@@ -89,13 +89,13 @@ export default function Contact() {
               rows="6"
               className="form-textarea"
               placeholder="Your message here..."
-              value={formData.message}
+              defaultValue=""
               onChange={handleChange}
               required
             ></textarea>
           </div>
           <button
-            type="submit" // Use type="submit" so HTML5 form validation still works
+            type="submit"
             className="submit-button"
           >
             Open Email App to Send Message
