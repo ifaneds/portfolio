@@ -1,78 +1,111 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { LuX, LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 export default function ImageGallery({ projectName }) {
-  const [images, setImages] = useState([]); // [{src, caption}]
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [tried, setTried] = useState(false);
+  // Consolidate related state into a single object
+  const [galleryState, setGalleryState] = useState({
+    images: [],
+    currentImageIndex: 0,
+    isModalOpen: false,
+    isLoading: true,
+    tried: false
+  });
+
+  // Memoize the gallery URL to prevent unnecessary re-computations
+  const galleryUrl = useMemo(() => 
+    `${process.env.PUBLIC_URL}/projects/${projectName}/gallery.json`,
+    [projectName]
+  );
 
   useEffect(() => {
-    setIsLoading(true);
-    setTried(false);
-    // Try to fetch gallery.json for this project
-    fetch(`${process.env.PUBLIC_URL}/projects/${projectName}/gallery.json`)
+    setGalleryState(prev => ({ ...prev, isLoading: true, tried: false }));
+    
+    fetch(galleryUrl)
       .then((res) => {
         if (!res.ok) throw new Error('No gallery.json');
         return res.json();
       })
       .then((data) => {
-        // Prepend the public URL to each src
         const imagesWithFullSrc = data.map(img => ({
           ...img,
           src: `${process.env.PUBLIC_URL}/projects/${projectName}/${img.src}`
         }));
-        setImages(imagesWithFullSrc);
-        setIsLoading(false);
-        setTried(true);
+        setGalleryState(prev => ({
+          ...prev,
+          images: imagesWithFullSrc,
+          isLoading: false,
+          tried: true
+        }));
       })
       .catch(() => {
-        setImages([]);
-        setIsLoading(false);
-        setTried(true);
+        setGalleryState(prev => ({
+          ...prev,
+          images: [],
+          isLoading: false,
+          tried: true
+        }));
       });
-  }, [projectName]);
+  }, [galleryUrl, projectName]);
 
-  // Remove broken images from state
-  const handleImageError = (brokenSrc) => {
-    setImages((prev) => prev.filter((img) => img.src !== brokenSrc));
-  };
-
-  const openModal = (index) => {
-    setCurrentImageIndex(index);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+  // Memoize navigation functions to prevent unnecessary re-renders
   const nextImage = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+    setGalleryState(prev => ({
+      ...prev,
+      currentImageIndex: (prev.currentImageIndex + 1) % prev.images.length
+    }));
+  }, []);
 
   const prevImage = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
+    setGalleryState(prev => ({
+      ...prev,
+      currentImageIndex: (prev.currentImageIndex - 1 + prev.images.length) % prev.images.length
+    }));
+  }, []);
+
+  const openModal = useCallback((index) => {
+    setGalleryState(prev => ({
+      ...prev,
+      currentImageIndex: index,
+      isModalOpen: true
+    }));
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setGalleryState(prev => ({ ...prev, isModalOpen: false }));
+  }, []);
+
+  const handleImageError = useCallback((brokenSrc) => {
+    setGalleryState(prev => ({
+      ...prev,
+      images: prev.images.filter((img) => img.src !== brokenSrc)
+    }));
+  }, []);
+
+  // Memoize keyboard event handler
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    } else if (e.key === 'ArrowRight') {
+      nextImage();
+    } else if (e.key === 'ArrowLeft') {
+      prevImage();
+    }
+  }, [closeModal, nextImage, prevImage]);
 
   useEffect(() => {
-    if (isModalOpen) {
-      const handleKeyDown = (e) => {
-        if (e.key === 'Escape') {
-          closeModal();
-        } else if (e.key === 'ArrowRight') {
-          nextImage();
-        } else if (e.key === 'ArrowLeft') {
-          prevImage();
-        }
-      };
+    if (galleryState.isModalOpen) {
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
-  }, [isModalOpen, images.length, currentImageIndex, nextImage, prevImage]);
+  }, [galleryState.isModalOpen, handleKeyDown]);
 
-  if (isLoading) {
+  // Memoize current image to prevent unnecessary re-renders
+  const currentImage = useMemo(() => 
+    galleryState.images[galleryState.currentImageIndex],
+    [galleryState.images, galleryState.currentImageIndex]
+  );
+
+  if (galleryState.isLoading) {
     return (
       <div className="gallery-placeholder">
         <p>Loading images...</p>
@@ -80,7 +113,7 @@ export default function ImageGallery({ projectName }) {
     );
   }
 
-  if (images.length === 0 && tried) {
+  if (galleryState.images.length === 0 && galleryState.tried) {
     return (
       <div className="gallery-placeholder">
         <p>No images to display</p>
@@ -92,7 +125,7 @@ export default function ImageGallery({ projectName }) {
   return (
     <div className="image-gallery">
       <div className="gallery-grid">
-        {images.map((image, index) => (
+        {galleryState.images.map((image, index) => (
           <div 
             key={image.src}
             className="gallery-item"
@@ -111,7 +144,7 @@ export default function ImageGallery({ projectName }) {
       </div>
 
       {/* Modal */}
-      {isModalOpen && images.length > 0 && (
+      {galleryState.isModalOpen && galleryState.images.length > 0 && currentImage && (
         <div className="gallery-modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>
@@ -124,12 +157,12 @@ export default function ImageGallery({ projectName }) {
             
             <div className="modal-image-container">
               <img
-                src={images[currentImageIndex].src}
-                alt={images[currentImageIndex].caption || `${projectName} screenshot ${currentImageIndex + 1}`}
+                src={currentImage.src}
+                alt={currentImage.caption || `${projectName} screenshot ${galleryState.currentImageIndex + 1}`}
                 className="modal-image"
               />
-              {images[currentImageIndex].caption && (
-                <div className="gallery-caption modal-caption">{images[currentImageIndex].caption}</div>
+              {currentImage.caption && (
+                <div className="gallery-caption modal-caption">{currentImage.caption}</div>
               )}
             </div>
             
@@ -138,11 +171,11 @@ export default function ImageGallery({ projectName }) {
             </button>
             
             <div className="modal-indicators">
-              {images.map((_, index) => (
+              {galleryState.images.map((_, index) => (
                 <button
                   key={index}
-                  className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentImageIndex(index)}
+                  className={`indicator ${index === galleryState.currentImageIndex ? 'active' : ''}`}
+                  onClick={() => setGalleryState(prev => ({ ...prev, currentImageIndex: index }))}
                 />
               ))}
             </div>

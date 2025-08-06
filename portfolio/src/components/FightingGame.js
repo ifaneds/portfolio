@@ -1,5 +1,5 @@
 import React from "react";
-import { LuGithub, LuArrowLeft, LuGamepad2, LuSettings, LuZap, LuExternalLink, LuVideo, LuUser } from "react-icons/lu";
+import { LuGithub, LuArrowLeft, LuGamepad2, LuSettings, LuZap, LuVideo } from "react-icons/lu";
 import ImageGallery from "./ImageGallery";
 
 export default function FightingGame() {
@@ -33,6 +33,11 @@ export default function FightingGame() {
                 The game will feature a blend of hand-crafted and procedural animation, AI-driven opponents, and a flexible combat system. The project is a solo effort.
               </p>
             </div>
+
+            <div className="project-section">
+            <p className="project-description">
+              This video shows the last updates to the fighting mechanics, as well as some basic AI and UI.
+              </p>
             <iframe
     width="800"
     height="450"
@@ -43,6 +48,7 @@ export default function FightingGame() {
     allowFullScreen
     style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
   />
+  </div>
             <div className="project-section">
               <h2 className="section-title">Key Features</h2>
               <div className="features-grid">

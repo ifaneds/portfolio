@@ -1,5 +1,5 @@
 // src/components/GltfModel.js
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
@@ -11,10 +11,16 @@ export function Apartment({ url, position, scale, rotation, onLoaded }) {
 
   // If your model has animations, use useAnimations
   const { actions, names } = useAnimations(gltf.animations, gltf.scene);
-  const mixerRef = useRef(); // Ref for the animation mixer
 
   // Use a ref to access the actual 3D object in the scene
   const modelRef = useRef();
+
+  // Memoize the onLoaded callback to prevent unnecessary re-renders
+  const handleLoaded = useCallback(() => {
+    if (gltf.scene && onLoaded) {
+      onLoaded(gltf.scene, gltf.animations, actions);
+    }
+  }, [gltf.scene, gltf.animations, actions, onLoaded]);
 
   // This effect runs once after the component mounts
   useEffect(() => {
@@ -39,11 +45,9 @@ export function Apartment({ url, position, scale, rotation, onLoaded }) {
       }
 
       // Call the onLoaded callback if provided
-      if (onLoaded) {
-        onLoaded(gltf.scene, gltf.animations, actions);
-      }
+      handleLoaded();
     }
-  }, [gltf, actions, names, onLoaded]); // Re-run if gltf or animations change
+  }, [gltf.scene, names, actions, handleLoaded]); // Simplified dependencies
 
   // Optional: If you need to update animation state per frame
   // This is more complex if you're driven by scroll, you'd set time directly
@@ -54,13 +58,12 @@ export function Apartment({ url, position, scale, rotation, onLoaded }) {
 
   return (
     // <primitive> is used to render raw three.js objects in a React-three-fiber scene.
-    // gltf.scene is the root of your loaded 3D model.
     <primitive
-      ref={modelRef}
       object={gltf.scene}
       position={position}
       scale={scale}
       rotation={rotation}
+      ref={modelRef}
     />
   );
 }

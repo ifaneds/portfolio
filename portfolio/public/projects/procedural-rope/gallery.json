@@ -1,3 +1,5 @@
 [
-    { "src": "image1.jpg" , "caption": "Ropes connected to actors"}
+    { "src": "image1.jpg" , "caption": "Ropes connected to actors"},
+    { "src": "image2.png" , "caption": "Procedural ropes used in level design"},
+    { "src": "image3.png" , "caption": "Procedural ropes used in level design"}
 ]

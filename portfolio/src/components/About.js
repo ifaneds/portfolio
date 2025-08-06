@@ -13,22 +13,29 @@ export default function About() {
           className="about-image"
         />
         <p className="about-paragraph">
-          Hello! I'm Ifan Edwards, a BSc Games and Multimedia Environments
-          graduate, living in Hove. I am currently enrolled in an Unreal Engine
-          Game Developer Bootcamp with SkillsCity, where I am honing my skills
-          in game development using the Unreal Engine 5 platform. My journey in
-          game development has been fueled by a lifelong passion for technology,
-          creativity and gaming.
+          Hello! I'm Ifan Edwards, 
         </p>
         <p className="about-paragraph">
           I have a strong foundation in programming languages such as C# and
           Java, and my degree taught me the principles of computer science, game
           design, and multimedia environments. I am an aspiring Technical
           Artist, with a keen interest in the intersection of art and technology
-          in game development. I have experience with software such as Blender
-          for 3D modeling and animation and want to combine my technical skills
-          with artistic creativity to create visually stunning and immersive
-          game experiences.
+          in game development. I have over 5 years of experience with Blender
+          and want to combine my technical skills with artistic creativity to 
+          create visually stunning and immersive game experiences.
+        </p>
+        <p className="about-paragraph">
+        In 2023, I graduated from the University of Sussex with a 2.1 in BSc (Hons)
+         Games and Multimedia Environments. I have recently finished an Unreal 
+        Engine Game Developer Bootcamp with SkillsCity, where I honed my skills
+          in game development using the Unreal Engine 5 platform. My journey in
+          game development has been fueled by a lifelong passion for technology,
+          creativity and gaming.
+          </p>
+          <p className="about-paragraph">
+          I am looking for opportunities to work in the game development industry, 
+          or in software development in South Wales, South West, Greater London or Sussex.
+
         </p>
         <p className="about-paragraph">
           Outside of coding and game development, I enjoy swimming, playing
