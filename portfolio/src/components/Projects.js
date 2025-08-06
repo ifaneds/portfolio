@@ -19,7 +19,7 @@ export default function Projects() {
       ],
               links: {
           github: "https://github.com/jacobvillard/RoomOne",
-          live: "https://roomone.dpdns.org/index.html",
+          live: "https://store.steampowered.com/app/3830220/GOBSMACKED/",
           video: null,
           internal: "gobsmacked" // Internal page for this project
         },
@@ -88,10 +88,10 @@ export default function Projects() {
       description:
         "A game developed for a game jam as part of the Unreal Engine - Games Developer Bootcamp. Click the video link to see a short demo",
       technologies: [
-        "Unity",
-        "C#",
+        "Unreal Engine",
+        "Blueprints",
         "Game Jam",
-        "Game Design"
+        "Game Development"
       ],
       links: {
         github: null,
@@ -100,6 +100,42 @@ export default function Projects() {
         internal: null
       },
       imageUrl: process.env.PUBLIC_URL + "/game_jam_project_image.png"
+    },
+    {
+      title: "Save the Party",
+      description:
+        "A short game made in Unity as part of my degree. Players must navigate a dark night club and get the party back up and running.",
+      technologies: [
+        "Unity",
+        "C#",
+        "Level Design",
+        "Game Development"
+      ],
+      links: {
+        github: "https://github.com/ifaneds/save-the-party",
+        live: null,
+        video: "https://www.youtube.com/watch?v=jQDdHifcgaA",
+        internal: null
+      },
+      imageUrl: process.env.PUBLIC_URL + "/save_the_party_project_image.PNG"
+    },
+    {
+      title: "Property Tycoon",
+      description:
+        "Reacreation of the classic game 'Monopoly' made with Python and Pygame. The game is a simple simulation of the real world where players buy and sell properties, and collect rent from other players. Made for a university assignment.",
+      technologies: [
+        "Python",
+        "Pygame",
+        "Adobe Illustrator",
+        "Game Development"
+      ],
+      links: {
+        github: "https://github.com/ifaneds/property-tycoon",
+        live: null,
+        video: "https://www.youtube.com/watch?v=fUyp6XDiUk4",
+        internal: null
+      },
+      imageUrl: process.env.PUBLIC_URL + "/property_tycoon_project_image.PNG"
     },
   ];
 
