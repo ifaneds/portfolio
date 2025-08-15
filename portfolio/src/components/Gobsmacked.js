@@ -47,7 +47,7 @@ export default function Gobsmacked() {
                 In this project, I have been working on the functionality of two mini games; bomb tag and roped together. 
                 For bomb tag, I designed the visual effects and implemented the bomb fuse and explosion Niagara systems. 
                 For roped together, I designed the rope mechanics similar methods to the procedural rope component 
-                I made for my other project. I have designed two levels which contain mostly 
+                I made for my other project. I have designed two levels which contain mostly custom assets made in Blender by me.
               </p>
     
 
@@ -55,7 +55,7 @@ export default function Gobsmacked() {
     width="800"
     height="450"
     src="https://www.youtube.com/embed/U11Xwk3YYcU"
-    title="Procedural Rope Demo"
+    title="Level 1 showcase"
     frameBorder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowFullScreen
@@ -70,7 +70,7 @@ export default function Gobsmacked() {
 width="800"
 height="450"
 src="https://www.youtube.com/embed/LaTXemeou7Q"
-title="Procedural Rope Demo"
+title="Level 2 showcase"
 frameBorder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowFullScreen
@@ -86,13 +86,30 @@ style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0
     and a bool decides whether bridges should be created. 
   </p>
   <p className="project-description">
-  The video below shows the creation of walkways:
+  The video below how walkways are created and edited:
   </p>
   <iframe
 width="800"
 height="450"
 src="https://www.youtube.com/embed/jgY6F3eTddE"
-title="Procedural Rope Demo"
+title="Walkway Editing"
+frameBorder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowFullScreen
+style={{ maxWidth: "100%", borderRadius: "12px", boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
+/>
+<p className="project-description">
+  Another contribution of mine is the VFX for the bomb used in our Bomb Tag game mode. I created a model for the bomb
+   and fuse, and made a short animation of the fuse swaying from side to side to add some movement to the burning fuse. 
+   The fuse burning is acheived using a dynamic material instance with a parameter that controls the location of an opacity mask
+   which is controlled by a timeline. I also created a smoke and sparks Niagara system for the fuse that moves towards the bomb as it burns.
+   The explosion uses a fluid Niagara system and there is a geometry collection that has an impulse applied to it on explosion.
+  </p>
+  <iframe
+width="800"
+height="450"
+src="https://www.youtube.com/embed/ipMiLHs5cTM"
+title="Bomb VFX"
 frameBorder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowFullScreen

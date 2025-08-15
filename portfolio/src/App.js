@@ -16,6 +16,7 @@ import Three from "./components/three";
 import Gobsmacked from "./components/Gobsmacked";
 import ProceduralRope from "./components/ProceduralRope";
 import FightingGame from "./components/FightingGame";
+import EarthquakeVFX from "./components/EarthquakeVFX";
 
 // Import your global CSS file
 import "./style.css";
@@ -52,6 +53,8 @@ export default function App() {
           <Route path="projects/gobsmacked" element={<Gobsmacked />} />
           <Route path="projects/procedural-rope" element={<ProceduralRope />} />
           <Route path="projects/fighting-game" element={<FightingGame />} />
+          <Route path="projects/earthquake-vfx" element={<EarthquakeVFX />} />
+
           <Route path="contact" element={<Contact />} />
           {/* Add a catch-all for 404 if desired */}
           <Route path="*" element={<div>404 Not Found</div>} />

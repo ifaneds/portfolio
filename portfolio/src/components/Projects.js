@@ -84,6 +84,25 @@ export default function Projects() {
       imageUrl: process.env.PUBLIC_URL + "/side_hustle_project_image.png",
     },
     {
+      title: "Earthquake VFX",
+      description:
+        "A project I did for my university final project. The goal was to create a realistic earthquake VFX using Blender and After Effects.",
+      technologies: [
+        "Blender",
+        "After Effects",
+        "3D Modelling",
+        "VFX",
+        "Compositing"
+      ],
+      links: {
+        github: null,
+        live: null,
+        video: "https://www.youtube.com/watch?v=fUyp6XDiUk4",
+        internal: "earthquake-vfx"
+      },
+      imageUrl: process.env.PUBLIC_URL + "/earthquake_vfx_project_image.PNG"
+    },
+    {
       title: "Game Jam - It's not what it seems",
       description:
         "A game developed for a game jam as part of the Unreal Engine - Games Developer Bootcamp. Click the video link to see a short demo",
